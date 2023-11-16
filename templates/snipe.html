@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Twitter</title>
+    <style>
+         .in{position: relative;}
+         input{position: absolute;border-radius: 9px;border: none;outline: none;background-color: #28343e;
+            color: #fff;font-size: 20px;top: 92px;left: 430px;width: 541px;height: 52px;padding-left: 10px;}
+        button{height: 45px;position: absolute;top: 161px;left: 845px;width: 130px;border-radius: 23px;
+            border: none;font-size: 16px;background-color: #1da1f2;color: #fff;}
+        .user{position: absolute;top: 133px;left: 143px;width: 78px;}
+        .user1{position: absolute;top: 97px;left: 367px;width: 60px;}
+       {height: 105px;position: absolute;top: 250px;left: 245px;width: 1300px;border-radius: 23px;
+            border: none;font-size: 16px;background-color: #1da1f2;color: #fff;
+        }
+         .tdeat{position: absolute;border-radius: 9px;border: none;outline: none;background-color: #28343e;
+            color: #28343e;top: 234px;left: 340px;width: 645px;height: 590px;padding-left: 10px; overflow: scroll;}
+            .tdeats{position: absolute;border-radius: 9px;border: none;outline: none;background-color: white;
+            color: #fff;top: 4px;left: 10px;width: 620px;height: 120px;padding-left: 10px; color:black; }
+         img{position: top;margin-top: -10px;margin-left: -8px;width: 1350px;}
+          .lout {position: absolute;top: 15px;right: 75px;width: 150px;height: 31px;background-color: #1da1f2;
+            border-radius: 2em;color: #fff;text-decoration: none;text-align: center;padding-top: 6px;
+            font-size: 19px;}
+              label{position: absolute;width: 300px;height: 25px;background-color: #1b2730;top: 215px;left: 23px;
+            text-align: center;color: #fff;font-size: 22px;}
+           .pop{position: block;top: 150px;left: 362px;width: 445px;background-color: #9cd9ff;
+            border-radius: 10px;color: red;padding: 20px 5px 35px;;display: none;font-size: 22px;}
+            .twt {position: absolute;top: 60px;right: 75px;width: 150px;height: 31px;background-color: #1da1f2;
+            border-radius: 2em;color: #fff;text-decoration: none;text-align: center;padding-top: 6px;
+            font-size: 19px;}
+            a{text-decoration: none;}
+            .pop{position: absolute;top: 150left: 362px;width: 445px;background-color: #9cd9ff;
+            border-radius: 10px;color: #000;padding: 20px 5px 35px;;display: none;font-size: 22px;}
+            .twt {position: absolute;top: 60px;right: 75px;width: 150px;height: 310px;background-color: #1da1f2;
+            border-radius: 2em;color: #fff;text-decoration: none;text-align: center;padding-top: 6px;
+            font-size: 19px;}
+            /* width */
+
+.tdeat::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.tdeat::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.tdeat::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.tdeat::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>
+</head>
+<body>
+ <form action="/send" method="POST">
+     <div class="in">
+     <img src="static/img/bc.png">
+          <img class="user" src="static/img/user.png">
+            <img class="user1" src="static/img/user.png">
+                <div class="lout"><a href="/">Logout</a></div>
+                <input type="text" name="msg" placeholder="What's Happaning?" autofocus="autofocus">
+                <button id="{{ty}}" type="submit">Tweet</button>
+                <label>{{uname}}</label>
+                <label class="pop" {{view}}>{{value}}</label>
+
+
+                <div class="tdeat">
+
+
+
+    {% for row in rows %}
+      {% if loop.index == 1 %}
+        <div style="background-color: #555; color:white; border-radius: 9px; width: 620px;height: 120px;padding-left: 10px; ">
+          <h1>{{ row[0] }}</h1>
+            <h2>{{ row[1] }}</h2>
+        </div>
+      {% elif loop.index == 2 %}
+        <div style="background-color: #555; color:white; border-radius: 9px; width: 620px;height: 120px;padding-left: 10px; ">
+          <h1>{{ row[0] }}</h1>
+            <h2>{{ row[1] }}</h2>
+        </div>
+      {% else %}
+        <div style="background-color: #555; color:white; border-radius: 9px; width: 620px;height: 120px;padding-left: 10px; ">
+          <h1>{{ row[0] }}</h1>
+            <h2>{{ row[1] }}</h2>
+        </div>
+      {% endif %}
+
+      {% set row_counter = row_counter + 1 %}
+    {% endfor %}
+
+</div>
+
+               </div>
+
+
+            </form>
+ <script>
+        var d = console.log("y");
+        if (d){alert("Hello user! You send wrong word Please Change it!");}
+        var d = console.log("n");
+        if (d){alert("Post Tweeted");}
+    </script>
+</body>
+</html>
